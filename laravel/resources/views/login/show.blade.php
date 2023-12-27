@@ -8,16 +8,15 @@
     <title>Document</title>
 </head>
 <body>
-<h1>ユーザー編集画面</h1>
-<form action="{{ route('user.update', ['id' => $user->id]) }}" method="post">
+<h1>ログイン画面</h1>
+
+<form action="{{ route('login.post') }}" method="post">
     @csrf
-    <label for="name">名前</label>
-    <input id="name" name="name" type="text" value="{{ $user->name }}">
     <label for="email">メールアドレス</label>
-    <input id="email" name="email" type="email">
+    <input id="email" type="email" name="email">
     <label for="password">パスワード</label>
-    <input id="password" name="password" type="password">
-    <button>送信する</button>
+    <input id="password" type="password" name="password">
+    <button>送信</button>
 </form>
 </body>
 </html>

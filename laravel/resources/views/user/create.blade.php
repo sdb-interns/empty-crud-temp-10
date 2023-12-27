@@ -9,10 +9,23 @@
 </head>
 <body>
     <h1>ユーザー作成画面</h1>
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form action="{{ route('user.store') }}" method="post">
         @csrf
         <label for="name">名前</label>
         <input id="name" name="name" type="text">
+        <label for="email">メールアドレス</label>
+        <input id="email" name="email" type="email">
+        <label for="password">パスワード</label>
+        <input id="password" name="password" type="password">
         <button>送信する</button>
     </form>
 </body>
